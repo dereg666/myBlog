@@ -6,6 +6,7 @@ class BoardApp extends Component {
   constructor() {
     super();
     this.state = {
+      value: '',
       comments: [],
       addCommentHolder: 'Type to add a comment',
       addCommentValue: '',
@@ -24,7 +25,8 @@ class BoardApp extends Component {
     fetch('/api/loading')
       .then(response => response.json())
       .then((data) => {
-        this.setState({ comments: data });
+        this.setState({ value: data.value });
+        this.setState({ comments: data.comments });
       }).catch((error) => {
         console.log('request failed', error);
       });
@@ -57,7 +59,7 @@ class BoardApp extends Component {
         Value: this.state.addCommentValue,
       };
       const temp = this.state.comments;
-      fetch('/api/posting', {
+      fetch('/api/posting/:id', {
         method: 'post',
         headers: {
           Accept: 'application/json',
@@ -98,6 +100,7 @@ class BoardApp extends Component {
           <h1> Guestbook </h1>
         </div>
         <div className="App">
+          <div className="Article" dangerouslySetInnerHTML={{ __html: this.state.value }} />
           <div className="Comments">
             {this.state.comments.map(c => <CommentSection
               userName={c.Name}

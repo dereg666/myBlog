@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+
 import TinyEditorComponent from './TinyEditorComponent';
+
 import './App.css';
 
 class PostSection extends Component {
