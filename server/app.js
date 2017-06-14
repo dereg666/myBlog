@@ -81,4 +81,8 @@ app.post('/api/postComment/:id', (req, res) => {
   });
 });
 
+app.get('*', (req, res) => {
+  res.redirect('/');
+});
+
 module.exports = app;
