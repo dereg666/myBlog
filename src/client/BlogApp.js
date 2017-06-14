@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 // import CommentSection from './CommentSection';
-import TinyEditorComponent from './TinyEditorComponent';
 import './App.css';
 
 class BlogApp extends Component {
@@ -21,14 +20,10 @@ class BlogApp extends Component {
   //     }).catch((error) => {
   //       console.log('request failed', error);
   //     });
-  // }
+  // } <div dangerouslySetInnerHTML={{ __html: this.state.value }} />
   render() {
     return (
       <div>
-        <TinyEditorComponent
-          id="myCoolEditor"
-          onEditorChange={content => console.log(content)}
-        />
       </div>
     );
   }

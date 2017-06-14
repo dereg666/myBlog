@@ -15,7 +15,10 @@
     "node": "^0.0.0",
     "prop-types": "^15.5.8",
     "react": "^15.6.0",
-    "react-dom": "^15.6.0"
+    "react-dom": "^15.6.0",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "tinymce": "^4.6.4"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"

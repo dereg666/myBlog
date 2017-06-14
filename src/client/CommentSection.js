@@ -2,20 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import nologin from '../pic/No_Login_90.gif';
 
-// const showDate = (ms) => {
-//   const past = new Date(ms);
-//   // const now = new Date();
-//   // console.log(ms);
-//   // if (now.getSeconds() - past.getSeconds() < 60) {
-//   //   return 'Just now';
-//   // } else if (now.getMinutes() - past.getMinutes() < 60) {
-//   //   return (now.getMinutes() - past.getMinutes()).toString() + ' mins';
-//   // } else if (now.getHours() - past.getHours() < 24) {
-//   //   return (now.getHours() - past.getHours()).toString() + ' hrs';
-//   // }
-//   return 'at ' + past.toLocaleString() + ' comment | prosecute';
-// };
-
 class CommentSection extends Component {
   constructor(props) {
     super(props);
