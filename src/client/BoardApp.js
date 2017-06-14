@@ -115,7 +115,7 @@ class BoardApp extends Component {
     return (
       <div>
         <div className="header">
-          <h1>{this.data.Title}</h1>
+          <h1>{this.state.data.Title}</h1>
         </div>
         <div className="App">
           <div className="Article" dangerouslySetInnerHTML={{ __html: this.state.data.Value }} />
