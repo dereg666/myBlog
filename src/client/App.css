@@ -1,0 +1,99 @@
+body {
+  background-color: rgb(195, 201, 155);
+}
+
+.header {
+  background-color: rgb(124, 144, 57);
+  height: 80px;
+  padding: 15px 40px;
+  color: white;
+}
+
+.commentBlock {
+  color: rgb(112, 130, 117);
+  position: relative;
+  min-height: 135px;
+  left: 15%;
+  width: 70%;
+  background-color: rgb(188, 206, 168);
+  border: none;
+  border-bottom: 1px dashed;
+
+}
+.profilePic {
+  position: absolute;
+  padding: 10px 10px;
+}
+
+.commentDisplay {
+  font-size: 18px;
+  position: relative;
+  word-break: break-all;
+  // width: calc(100% - 130px - 2em);
+  padding: 10px 50px 50px 115px;
+  // left: 113px;
+  // top: 10px;
+}
+
+.floorDisplay {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.infoDisplay {
+  font-size: 15px;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+.nameDisplay {
+  color: rgb(136, 89, 70);
+  text-decoration: underline;
+}
+
+.Comments {
+  padding: 20px 0px 0px 0px;
+}
+
+.InputBox {
+  position: relative;
+  width: 70%;
+  padding: 20px 0 150px 10px;
+  left: calc(15%);
+}
+
+.userBox {
+  background: none;
+  border: none;
+  margin: 10px 0 25px 0;
+  padding: 3px 3px 3px 3px;
+  font-size: 12px;
+
+}
+
+.commentBox {
+  background: none;
+  border: none;
+  margin: 10px 0 10px 0;
+  padding: 3px 3px 3px 3px;
+  height: 200px;
+  width: 500px;
+  resize: none;
+  font-size: 14px;
+}
+
+.PAC {
+  font-size: 22px;
+  font-weight: bold;
+  padding: 0 0 25px 0;
+}
+
+.string {
+  font-size: 15px;
+}
+
+.boxS {
+  resize: none;
+}
