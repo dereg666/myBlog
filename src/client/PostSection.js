@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-
 import TinyEditorComponent from './TinyEditorComponent';
-
-import './App.css';
+import './PostSection.css';
 
 class PostSection extends Component {
   constructor() {
@@ -27,6 +25,7 @@ class PostSection extends Component {
       const addPost = {
         Title: this.state.title,
         Value: this.state.value,
+        Name: 'Anonymous',
       };
       fetch('/api/posting', {
         method: 'post',
@@ -46,9 +45,10 @@ class PostSection extends Component {
             err.response = res;
             throw err;
           }
+          this.tiny.reset();
+          window.location.href = '/';
         }).catch((err) => {
           console.error(err);
-          this.update();
         });
     }
   }
@@ -65,6 +65,7 @@ class PostSection extends Component {
         <div>文章內容</div>
         <TinyEditorComponent
           id="myCoolEditor"
+          ref={(instance) => { this.tiny = instance; }}
           onEditorChange={this.valueChange}
         />
         <input

@@ -8,12 +8,12 @@ import './client/index.css';
 
 ReactDOM.render(
   <div>
-    <div>hello</div>
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/post" component={PostSection} />
-          <Route path="/article" component={BoardApp} />
+          <Route exact path="/" component={BlogApp} />
+          <Route exact path="/post" component={PostSection} />
+          <Route exact path="/article/:id" component={BoardApp} />
         </Switch>
       </div>
     </BrowserRouter>

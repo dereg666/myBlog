@@ -1,13 +1,29 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import CommentSection from './CommentSection';
 import './App.css';
+
+// const testData = {
+//   Title: 'test123',
+//   Value: '<p><span style="color: #00ffff;">hahahahaha</span></p>',
+//   Time: 1497447326286,
+//   Comments: [
+//     
+//   ],
+// };
 
 class BoardApp extends Component {
   constructor() {
     super();
     this.state = {
-      value: '',
-      comments: [],
+      data: {
+        Name: '',
+        Title: '',
+        Value: '',
+        Time: 0,
+        ip: '',
+        Comments: [],
+      },
       addCommentHolder: 'Type to add a comment',
       addCommentValue: '',
       addCommentUser: '',
@@ -22,13 +38,13 @@ class BoardApp extends Component {
     this.update();
   }
   update() {
-    fetch('/api/loading')
+    const url = '/api/loadArticle/' + this.props.match.params.id.toString();
+    fetch(url)
       .then(response => response.json())
-      .then((data) => {
-        this.setState({ value: data.value });
-        this.setState({ comments: data.comments });
+      .then((d) => {
+        this.setState({ data: d });
       }).catch((error) => {
-        console.log('request failed', error);
+        console.error('request failed', error);
       });
   }
   handleCommentChange(event, section) {
@@ -54,12 +70,13 @@ class BoardApp extends Component {
   }
   submitFunction() {
     if (this.state.addCommentValue) {
+      const url = '/api/postComment/' + this.props.match.params.id.toString();
       const addComment = {
-        Name: (this.state.comments.length + 1).toString() + ' ' + (this.state.addCommentUser ? this.state.addCommentUser : 'Anonymous'),
+        Name: (this.state.data.Comments.length + 1).toString() + ' ' + (this.state.addCommentUser ? this.state.addCommentUser : 'Anonymous'),
         Value: this.state.addCommentValue,
       };
-      const temp = this.state.comments;
-      fetch('/api/posting/:id', {
+      const temp = this.state.data;
+      fetch(url, {
         method: 'post',
         headers: {
           Accept: 'application/json',
@@ -68,12 +85,11 @@ class BoardApp extends Component {
         body: JSON.stringify(addComment),
       }).then(response => response.json())
         .then((res) => {
-          console.log(res);
           if (res.ok === 200) {
             addComment.Time = res.Time;
             addComment.ip = res.ip;
-            temp.push(addComment);
-            this.setState({ comments: temp });
+            temp.Comments.push(addComment);
+            this.setState({ data: temp });
             this.setState({ addCommentUser: '' });
             this.setState({ addCommentValue: '' });
           } else {
@@ -83,6 +99,8 @@ class BoardApp extends Component {
           }
         }).catch((err) => {
           console.error(err);
+          this.setState({ addCommentUser: '' });
+          this.setState({ addCommentValue: '' });
           this.update();
         });
       // addComment.Time = Date.now();
@@ -97,12 +115,12 @@ class BoardApp extends Component {
     return (
       <div>
         <div className="header">
-          <h1> Guestbook </h1>
+          <h1>{this.data.Title}</h1>
         </div>
         <div className="App">
-          <div className="Article" dangerouslySetInnerHTML={{ __html: this.state.value }} />
+          <div className="Article" dangerouslySetInnerHTML={{ __html: this.state.data.Value }} />
           <div className="Comments">
-            {this.state.comments.map(c => <CommentSection
+            {this.state.data.Comments.map(c => <CommentSection
               userName={c.Name}
               commentValue={c.Value}
               postTime={c.Time}

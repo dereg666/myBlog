@@ -8,13 +8,15 @@ class TinyEditorComponent extends Component {
   constructor() {
     super();
     this.state = {editor: null };
+    this.reset = this.reset.bind(this);
   }
   componentDidMount() {
     tinymce.init({
+      content: '',
       selector: `#${this.props.id}`,
       skin_url: `${process.env.PUBLIC_URL}/skins/lightgray`,
       plugins: [
-        "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak",
+        "advlist autolink link image lists charmap print preview hr anchor pagebreak",
         "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
         "table contextmenu directionality emoticons template textcolor paste fullpage textcolor colorpicker textpattern"
       ],
@@ -33,9 +35,12 @@ class TinyEditorComponent extends Component {
       }
     });
   }
-
   componentWillUnmount() {
     tinymce.remove(this.state.editor);
+  }
+  reset() {
+    tinymce.get(this.props.id).setContent('');
+    tinymce.activeEditor.windowManager.close(this);
   }
 
   render() {
