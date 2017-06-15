@@ -24,7 +24,7 @@ class TinyEditorComponent extends Component {
       toolbar2: "hr removeformat | subscript superscript | charmap emoticons | undo redo | link unlink image media code",
       resize: false,
       height: "500",
-      width: "800",
+      width: "1000",
       
       setup: editor => {
         this.setState({ editor });

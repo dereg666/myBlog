@@ -5,7 +5,39 @@ body {
 .postHeader {
   background-color: rgb(221, 221, 255);
   height: 80px;
-  padding: 15px 40px;
+  font-size: 2em;
+  padding: 30px 40px 0px 40px;
+  font-weight: bold;
   border-bottom: solid 1.5px rgba(140, 140, 140, 0.5);
+  color: black;
+}
+
+.newPost {
+  font-size: 18px;
+  padding: 20px 20px 3px 20px;
+}
+
+.newPostTitle {
+  position: relative;
+  left: 20px;
+  font-size: 16px;
+  padding: 5px 5px;
+  width: 600px;
+}
+
+.tinyBox {
+  position: relative;
+  left: 20px;
+}
+
+.newSubmit {
+  position: relative;
+  margin: 20px 0px 100px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  background-color: rgb(62, 146, 193);
   color: white;
+  left: 20px;
+  font-size: 15px;
+  border: none;
 }

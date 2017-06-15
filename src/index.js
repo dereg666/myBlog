@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import BlogApp from './client/BlogApp';
 import BoardApp from './client/BoardApp';
 import PostSection from './client/PostSection';
-
+import './client/index.css';
 
 ReactDOM.render(
   <div>
