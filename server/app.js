@@ -81,8 +81,18 @@ app.post('/api/postComment/:id', (req, res) => {
   });
 });
 
+app.get('/article/:id', (req, res) => {
+  db.find({ _id: req.params.id }, (err, docs) => {
+    if (docs.length > 0) {
+      res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+    } else {
+      res.redirect('/');
+    }
+  });
+});
+
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+  res.redirect('/');
 });
 
 module.exports = app;
