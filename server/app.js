@@ -82,7 +82,7 @@ app.post('/api/postComment/:id', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.redirect('/');
+  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 });
 
 module.exports = app;
