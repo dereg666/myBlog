@@ -55,6 +55,7 @@ class PostSection extends Component {
   render() {
     return (
       <div>
+        <header className="postHeader">Blog-發表新文章</header>
         <div>文章標題</div>
         <input
           className="userBox"

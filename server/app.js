@@ -70,7 +70,7 @@ app.post('/api/posting', (req, res) => {
 app.post('/api/postComment/:id', (req, res) => {
   const temp = req.body;
   temp.Time = Date.now();
-  temp.id = req.connection.remoteAddress.split(':')[3];
+  temp.ip = req.connection.remoteAddress.split(':')[3];
   res.json({
     ok: 200,
     Time: temp.Time,
