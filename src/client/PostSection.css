@@ -41,3 +41,11 @@ body {
   font-size: 15px;
   border: none;
 }
+
+.newSubmit[type=submit]:focus {
+  outline-width: 0;
+}
+
+.newSubmit[type=submit]:active {
+  transform: translate(0.5px, 1px);
+}
