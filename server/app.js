@@ -91,6 +91,10 @@ app.get('/article/:id', (req, res) => {
   });
 });
 
+app.get('/post', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+});
+
 app.get('*', (req, res) => {
   res.redirect('/');
 });
