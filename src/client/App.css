@@ -49,7 +49,7 @@ body {
 
 .previewTitle {
   color: rgb(98, 77, 47);
-  padding: 0px 0px 0px 5px;
+  padding: 0px 0px 10px 5px;
   font-size: 25px;
   width: 100%;
   border-bottom: 2px dashed;
