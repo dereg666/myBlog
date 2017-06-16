@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import './App.css';
 
 class Preview extends Component {
   constructor(props) {
@@ -19,12 +20,13 @@ class Preview extends Component {
   }
   render() {
     return (
-      <div className="commentBlock">
-        <div>{this.showTime()}</div>
-        <div>{this.props.postTitle}</div>
-        <Link to={`/article/${this.props.id}`}>(More......)</Link>
-        <div>{this.show()}</div>
-        <div>{this.props.id}</div>
+      <div className="previewBlock">
+        <div className="previewTime">{this.showTime()}</div>
+        <div className="previewTitle">{this.props.postTitle}</div>
+        <div className="moreLink">
+          <Link to={`/article/${this.props.id}`}>(More......)</Link>
+        </div>
+        <div className="previewShow">{this.show()}</div>
       </div>
     );
   }

@@ -29,6 +29,44 @@ body {
   border-bottom: 1px dashed;
 
 }
+
+.previewBlock {
+  position: relative;
+  min-height: 220px;
+  left: 15%;
+  width: 70%;
+  border: none;
+  border-bottom: 2px solid;
+}
+
+.previewTime {
+  color: rgb(82, 100, 87);
+  position: relative;
+  text-align: right;
+  padding: 20px 10px 0px 0px;
+  font-size: 15px;
+}
+
+.previewTitle {
+  color: rgb(98, 77, 47);
+  padding: 0px 0px 0px 5px;
+  font-size: 25px;
+  width: 100%;
+  border-bottom: 2px dashed;
+}
+
+.previewShow {
+  color: rgb(82, 100, 87);
+  position: relative;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+.moreLink {
+  margin: 66px 0px 20px 8px;
+}
+
 .profilePic {
   position: absolute;
   padding: 10px 10px;
@@ -105,4 +143,14 @@ body {
 
 .boxS {
   resize: none;
+}
+
+.Articles {
+  margin: 0px 0px 100px 0px;
+}
+
+.postLink {
+  position: relative;
+  left: 15%;
+  padding: 10px 0px 5px 0px;
 }
