@@ -4,10 +4,6 @@ import RtButton from 'react-toolbox/lib/button/Button';
 import Preview from './Preview';
 import './App.css';
 
-const WrappedLink = () => <button>
-  <Link to={'/post'}>發表新文章</Link>
-</button>;
-
 class BlogApp extends Component {
   constructor() {
     super();
@@ -17,42 +13,42 @@ class BlogApp extends Component {
     // this.update = this.update.bind(this);
   }
   componentDidMount() {
-    const temp1 = {
-      Title: '廢文1',
-      userName: 'robot',
-      Counts: '10',
-      Time: 1497445319002,
-    };
-    const temp2 = {
-      Title: '廢文2',
-      userName: 'robot',
-      Counts: '10',
-      Time: 1497445319002,
-    };
-    const temp3 = {
-      Title: '廢文3',
-      userName: 'robot',
-      Counts: '10',
-      Time: 1497445319002,
-    };
-    const temp4 = {
-      Title: '廢文4',
-      userName: 'robot',
-      Counts: '10',
-      Time: 1497445319002,
-    };
-    const all = [temp1, temp2, temp3, temp4];
-    this.setState({ allDatum: all });
+    // const temp1 = {
+    //   Title: '廢文1',
+    //   userName: 'robot',
+    //   Counts: '10',
+    //   Time: 1497445319002,
+    // };
+    // const temp2 = {
+    //   Title: '廢文2',
+    //   userName: 'robot',
+    //   Counts: '10',
+    //   Time: 1497445319002,
+    // };
+    // const temp3 = {
+    //   Title: '廢文3',
+    //   userName: 'robot',
+    //   Counts: '10',
+    //   Time: 1497445319002,
+    // };
+    // const temp4 = {
+    //   Title: '廢文4',
+    //   userName: 'robot',
+    //   Counts: '10',
+    //   Time: 1497445319002,
+    // };
+    // const all = [temp1, temp2, temp3, temp4];
+    // this.setState({ allDatum: all });
     this.update();
   }
   update() {
-    // fetch('/api/loadHome')
-    //   .then(response => response.json())
-    //   .then((data) => {
-    //     this.setState({ allDatum: data });
-    //   }).catch((error) => {
-    //     console.log('request failed', error);
-    //   });
+    fetch('/api/loadHome')
+      .then(response => response.json())
+      .then((data) => {
+        this.setState({ allDatum: data });
+      }).catch((error) => {
+        console.log('request failed', error);
+      });
   }
   render() {
     return (
